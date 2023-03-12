@@ -4,64 +4,6 @@
 <meta charset="UTF-8">
 <title>尚硅谷会员注册页面</title>
 	<link type="text/css" rel="stylesheet" href="../../static/css/style.css" >
-	<script type="text/javascript" src="../../static/scriptJQuery/jquery-3.2.1.js"></script>
-	<script>
-		//页面加载完成之后
-		$(function(){
-			//给注册绑定单击事件
-			$("#sub_btn").click(function (){
-				// 1.用户名必须有字母数字下划线组成,长度5-12位
-				//1.获取用户名输入框里的内容
-				var usernameText = $("#username").val();
-				//2.创建正则表达式
-				var userNamePatt = /^\w{5,12}$/;
-				//3.使用test方法进行验证
-				if(!userNamePatt.test(usernameText)){//不匹配返回false取反进入if
-					//4.提示用户，只有不匹配才能提示用户
-					$("span.errorMsg").text("用户名不合法!");
-					return false;
-				}
-				// 2.密码必须有字母数字下划线组成,长度5-12位
-				//1.获取密码输入框里的内容
-				var userPasswordText = $("#password").val();
-				//2.创建正则表达式
-				var userPasswordPatt = /^\w{5,12}$/;
-				//3.使用test方法进行验证
-				if(!userPasswordPatt.test(userPasswordText)){//不匹配返回false取反进入if
-					//4.提示用户，只有不匹配才能提示用户
-					$("span.errorMsg").text("密码不合法!");
-					return false;
-				}
-				// 3.验证确认密码:和密码相同
-				//1.获取密码框内容
-				var repwdText = $("#repwd").val();
-				if(repwdText != userPasswordText){//不匹配返回false取反进入if
-					//4.提示用户，只有不匹配才能提示用户
-					$("span.errorMsg").text("两次密码不一样!");
-					return false;
-				}
-				// 4.邮箱进行格式验证:xxxxxxx@xx.com
-				//1.获取邮箱框里的内容
-				var emailText = $("#email").val();
-				//2.创建正则表达式
-				var emailPatt = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-				//3.使用test方法进行验证
-				if(!emailPatt.test(emailText)){//不匹配返回false取反进入if
-					//4.提示用户，只有不匹配才能提示用户
-					$("span.errorMsg").text("邮箱不合法!");
-					return false;
-				}
-				// 5.对验证码进行非空验证,还没讲到服务器
-				var codeTest = $("#code").val();
-				codeTest = $.trim(codeTest)
-				if(codeTest == null || codeTest == " "){
-					$("span.errorMsg").text("验证码不能为空!");
-					return false;
-				}
-				$("span.errorMsg").text("");
-			})
-		})
-	</script>
 <style type="text/css">
 	.login_form{
 		height:420px;
